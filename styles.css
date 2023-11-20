@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom right, black, rgb(17, 17, 17))
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    height: 500px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    outline: none; /* Remove the outline that appears on focus */
+    border: none; /* Remove border */
+    display: block; /* Remove default inline display */
+    cursor: pointer
+}
