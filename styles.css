@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,3 +86,5 @@ video {
         controls: true; /* Show controls on smaller screens */
     }
 }
+
+html, body {margin: 0; height: 100%; overflow: hidden}
