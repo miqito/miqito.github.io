@@ -3,10 +3,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("myVideo");
 
-    video.addEventListener("click", function () {
-        // Change the URL below to the desired website
-        window.location.href = "https://miqito.com.br";
-    });
+    // video.addEventListener("click", function () {
+    //     // Change the URL below to the desired website
+    //     window.location.href = "https://miqito.com.br";
+    // });
 
     // Function to generate a random number between min and max (inclusive)
     function getRandomInt(min, max) {
