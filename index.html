@@ -1,22 +1,234 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: transparent;">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</style>
-    <title>miqito</title>
-</head>
-<body>
-    <div class="container">
-        <div class="card" id="video-card">
-            <video autoplay muted loop id="myVideo">
-                <source src="001_VP8.webm" type="video/webm">
-                Your browser does not support the video tag.
-            </video>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snap Custom Card Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&display=swap&family=Amatic+SC:wght@400;700&family=Bebas+Neue&family=Indie+Flower&family=Luckiest+Guy&family=Micro+5&family=Nerko+One&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Righteous&family=Shadows+Into+Light&family=Silkscreen:wght@400;700&display=swap&family=Jacquard+12&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Micro+5&family=Ojuju:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="title">
+        <h1>Marvel Snap Card Creator</h1>
+      </div>
+      <div class="content">
+        <div>
+          <div>
+            <p>Card name:</p>
+            <input type="text" id="nameInput" autocomplete="off" name="name" />
+          </div>
+          <div>
+            <p>Card text:</p>
+            <textarea
+              type="text"
+              id="effectInput"
+              autocomplete="off"
+              name="name"
+              rows="4"
+              cols="50"
+            ></textarea>
+          </div>
+          <br />
+          <div>
+            <a>Cost:</a>
+            <input
+              type="text"
+              maxlength="3"
+              style="width: 20px"
+              id="costInput"
+              autocomplete="off"
+              name="name"
+            />
+            <a>Power:</a>
+            <input
+              type="text"
+              maxlength="3"
+              style="width: 20px"
+              id="powerInput"
+              autocomplete="off"
+              name="name"
+            />
+          </div>
+          <div>
+            <div>
+              <br />
+            </div>
+            <br />
+            <label for="fontSelector">Select the font:</label>
+            <select
+              id="fontSelector"
+              name="fontSelector"
+              onchange="changefont()"
+            >
+              <option value="amatic-sc-regular" class="amatic-sc-regular">
+                Amatic SC
+              </option>
+              <option value="bebas-neue-regular" class="bebas-neue-regular">
+                Bebas Neue
+              </option>
+              <option value="creepster-regular" class="creepster-regular">
+                Creepster
+              </option>
+              <option value="indie-flower-regular" class="indie-flower-regular">
+                Indie Flower
+              </option>
+              <option value="jacquard-regular" class="jacquard-regular">
+                Jacquard
+              </option>
+              <option value="luckiest-guy-regular" class="luckiest-guy-regular">
+                Luckiest Guy
+              </option>
+              <option value="micro-5-regular" class="micro-5-regular">
+                Micro 5
+              </option>
+              <option value="nerko-one-regular" class="nerko-one-regular">
+                Nerko One
+              </option>
+              <option value="orbitron-regular" class="orbitron-regular">
+                Orbitron
+              </option>
+              <option value="oswald-regular" class="oswald-regular">
+                Oswald
+              </option>
+              <option value="righteous-regular" class="righteous-regular">
+                Righteous
+              </option>
+              <option value="silkscreen-regular" class="silkscreen-regular">
+                Silkscreen
+              </option>
+              <option
+                value="shadows-into-light-regular"
+                class="shadows-into-light-regular"
+              >
+                Shadows Into Light
+              </option>
+            </select>
+          </div>
+          <div>
+            <br />
+            <label for="borderSelector">Card frame</label>
+            <select
+              id="borderSelector"
+              name="borderSelector"
+              onchange="changeBorder()"
+            >
+              <option value="./imgs/none.png">None</option>
+              <option value="./imgs/frames/common.png">Common</option>
+              <option value="./imgs/frames/uncommon.png">Uncommon</option>
+              <option value="./imgs/frames/rare.png">Rare</option>
+              <option value="./imgs/frames/epic.png">Epic</option>
+              <option value="./imgs/frames/legendary.png">Legendary</option>
+              <option value="./imgs/frames/ultra.png">Ultra</option>
+              <option value="./imgs/frames/infinity.png">Infinity</option>
+            </select>
+          </div>
+          <div>
+            <br />
+            <br />
+            <a>Upload your art</a>
+            <br />
+            <input type="file" id="myFile" name="filename" />
+            <br />
+            <br />
+            <div class="slidecontainer">
+              <a>Resize Image:</a>
+              <input
+                type="range"
+                min="10"
+                max="2000"
+                value="436"
+                class="slider"
+                id="imgResize"
+              />
+              <a id="zoomValue"></a>
+              <br />
+              <button id="resetZoom">Reset zoom</button>
+            </div>
+            <div class="slidecontainer">
+              <a>Resize Font:</a>
+              <input
+                type="range"
+                min="80"
+                max="150"
+                value="100"
+                class="slider"
+                id="fontResize"
+                oninput="resizeText(this.value)"
+              />
+              <a id="fontValue"></a>
+              <br />
+              <!-- <button id="resetZoom">Reset zoom</button> -->
+            </div>
+          </div>
+
+          <br />
+          <br />
+          <button id="downloadButton">Download Image</button>
+          <br />
+          <br />
+          <br />
+          <div class="content2">
+            <div
+              id="renderedImg"
+              style="height: 910px; background-color: black"
+            >
+              <div class="card" id="mainArtStyle">
+                <div class="card" id="borderStyle">
+                  <div class="card" id="powerStyle">
+                    <div class="card" id="costStyle">
+                      <section class="stats">
+                        <div class="item cost-item">
+                          <a class="cc-ultimatum-regular" id="renderedCostText">
+                          </a>
+                        </div>
+                        <div class="item">
+                          <a></a>
+                        </div>
+                        <div class="item power-item">
+                          <a
+                            class="cc-ultimatum-regular"
+                            id="renderedPowerText"
+                          >
+                          </a>
+                        </div>
+                      </section>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="watermark-container">
+                      <!-- <a id="watermark">watermark</a> -->
+                    </div>
+                    <br />
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+              <div id="bottomTextDiv">
+                <p class="amatic-sc-regular" id="renderedName"></p>
+              </div>
+              <div></div>
+              <p id="renderedEffect"></p>
+            </div>
+          </div>
         </div>
+      </div>
+      <div style="margin-top: 30px; margin-left: 100px; text-align: left">
+        <h3>Latest Changes</h3>
+        <p>-<strong>[XX/XX/XX]</strong> XX XX</p>
+      </div>
     </div>
-    <script src="script.js"></script>
-</body>
+  </body>
+  <script src="html2canvas.js"></script>
+  <script src="script.js"></script>
 </html>
