@@ -32,7 +32,7 @@ document.getElementById('downloadButton').addEventListener('click', function() {
 
 function setTracks(){
     let lastfmuser = usernameInput.value
-    fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastfmuser}&api_key=b11d0f02d30b29b4092be9d26f4b5308&limit=1&format=json`)
+    fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastfmuser}&api_key=b11d0f02d30b29b4092be9d26f4b5308&limit=1&format=json`)
         .then((res)=> {
             return  res.json()
         })
