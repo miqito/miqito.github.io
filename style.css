@@ -1,52 +1,54 @@
 #cardRendered {
-    width: 300px;
-    height: 400px;
-    position: fixed;
+  width: 300px;
+  height: 400px;
+  position: fixed;
 }
 
 #border {
-    width: 300px;
-    height: 400px;
-    background-image: url('/imgs/border1.png');
+  width: 300px;
+  height: 400px;
+  background-image: url('/imgs/border1.png');
 }
 
 #coverArt {
-    width: 300px;
-    height: 400px;
-    background-size: 282px 282px;
-    background-position: 17px 80px;
-    background-color: rgba(255, 0, 0, 0);
+  width: 300px;
+  height: 400px;
+  background-size: 282px 282px;
+      background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 17px 80px;
+  background-color: rgba(255, 0, 0, 0);
 }
 
 #nowPlaying{
-    font-size: 16px;
-    text-align: center;
-    margin-top: -395px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: -395px;
 }
 
 #songName{
-    font-size: 24px;
-    text-align: center;
-    margin-top: 290px;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 290px;
 }
 
 #songArtist{
-    font-size: 18px;
-    text-align: center;
-    margin-top: -25px;
+  font-size: 18px;
+  text-align: center;
+  margin-top: -25px;
 }
 
 #songAlbum{
-    font-size: 12px;
-    text-align: center;
-    margin-top: -15px;
+  font-size: 12px;
+  text-align: center;
+  margin-top: -15px;
 }
 
 #user{
-    font-size: 8px;
-    text-align: right;
-    margin-top: -10px;
-    margin-right: 2px;
+  font-size: 8px;
+  text-align: right;
+  margin-top: -10px;
+  margin-right: 2px;
 }
 
 
@@ -60,97 +62,97 @@
 
 
 .amatic-sc-regular {
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .orbitron-regular {
-    font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .righteous-regular {
-    font-family: "Righteous", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .silkscreen-regular {
-    font-family: "Silkscreen", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .indie-flower-regular {
-    font-family: "Indie Flower", cursive;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 130%
-  }
-  
-  
-  .shadows-into-light-regular {
-    font-family: "Shadows Into Light", cursive;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 130%
-  }
-  
-  .jacquard-regular {
-    font-family: "Jacquard 12", system-ui;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  
-  .luckiest-guy-regular {
-    font-family: "Luckiest Guy", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  
-  .micro-5-regular {
-    font-family: "Micro 5", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .bebas-neue-regular {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .nerko-one-regular {
-    font-family: "Nerko One", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .oswald-regular {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 130%
-  }
-  
-  .creepster-regular {
-    font-family: "Creepster", system-ui;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.orbitron-regular {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.righteous-regular {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-regular {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 130%
+}
+
+
+.shadows-into-light-regular {
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 130%
+}
+
+.jacquard-regular {
+  font-family: "Jacquard 12", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.micro-5-regular {
+  font-family: "Micro 5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nerko-one-regular {
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.oswald-regular {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 130%
+}
+
+.creepster-regular {
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .text-border1 {
-    color: white
+  color: white
 }
 .text-border2 {
-    color: white
+  color: white
 }
 .text-border3 {
-    color: black
+  color: black
 }
