@@ -1,288 +1,156 @@
-html {
-    height: 100%;
+#cardRendered {
+    width: 300px;
+    height: 400px;
+    position: fixed;
 }
 
-body {
-  background-color: rgb(62, 16, 230);
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+#border {
+    width: 300px;
+    height: 400px;
+    background-image: url('/imgs/border1.png');
 }
 
-h1 {
-  text-decoration: underline;
-  color: white
+#coverArt {
+    width: 300px;
+    height: 400px;
+    background-size: 282px 282px;
+    background-position: 17px 80px;
+    background-color: rgba(255, 0, 0, 0);
 }
 
-a {
-  color: white
-}
-
-.main {
-  background-color: #000000;
-  text-align: center;
-  border-color: white;
-  border-width: 3px;
-  border-style: double;
-  margin: auto;
-  width: 1000px;
-  height: auto;
-  user-select: none;
-}
-
-
-.card {
-  width: 436px;
-  height: 910px;
-  position: relative;
-}
-
-#renderedEffect{
-    display: block;
-    position: relative;
-    z-index: 500;
-    font-size: 20px;
-    margin-top: -40px;
-    width: 100%;
-
-}
-
-.content2 {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  width: 800px;
-  height: 910px;
-}
-
-#bottomTextDiv {
-    display: flex;
-    justify-content:center;
-    align-items: flex-start;
-    vertical-align: top;
-    text-overflow: clip; 
-    white-space: nowrap;
-    margin-top: -430px;
+#nowPlaying{
+    font-size: 16px;
     text-align: center;
+    margin-top: -395px;
 }
 
-
-#renderedPowerText {
-    text-shadow: 2px 0 orange, -2px 0 orange, 0 2px orange, 0 -2px orange,
-    1px 1px orange, -1px -1px orange, 1px -1px orange, -1px 1px orange;
-    max-width: none;
-    z-index: 100;
-    font-size: 90px;
-    position: sticky;
-    user-select: none;
-}
-
-.cost-item {
-    margin-right: 20px;
-    margin-top: -6px;
-}
-
-.power-item {
-    margin-right: 0px;
-    margin-top: -6px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: 2fr 3fr 2fr;
-}
-
-#renderedCostText {
-    -webkit-text-stroke: 1px blue;
-    max-width: none;
-    z-index: 100;
-    font-size: 90px;
-    position: sticky;
-    user-select: none;
-}
-
-
-#renderedName {
-    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-    max-width: none;
-    z-index: 100;
-    font-size: 100px;
-    position: sticky;
-    margin-left: 0px;
+#songName{
+    font-size: 24px;
     text-align: center;
-    user-select: none;
-    line-height: 1.2;
-    margin-top: 0;
+    margin-top: 290px;
+}
+
+#songArtist{
+    font-size: 18px;
+    text-align: center;
+    margin-top: -25px;
+}
+
+#songAlbum{
+    font-size: 12px;
+    text-align: center;
+    margin-top: -15px;
+}
+
+#user{
+    font-size: 8px;
+    text-align: right;
+    margin-top: -10px;
+    margin-right: 2px;
 }
 
 
-#watermark {
-  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
-  1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-  width: 300px;
-  font-size: 10px;
-  max-width: 300px;
-  user-select: none;
-}
 
-.watermark-container{
-  z-index: 500;
-  margin-top: 320px;
-  margin-left: 170px;
-}
+
+
+
+
+
+
 
 
 .amatic-sc-regular {
-  font-family: "Amatic SC", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.orbitron-regular {
-  font-family: "Orbitron", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.righteous-regular {
-  font-family: "Righteous", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.silkscreen-regular {
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.indie-flower-regular {
-  font-family: "Indie Flower", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.shadows-into-light-regular {
-  font-family: "Shadows Into Light", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.jacquard-regular {
-  font-family: "Jacquard 12", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.luckiest-guy-regular {
-  font-family: "Luckiest Guy", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.micro-5-regular {
-  font-family: "Micro 5", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.nerko-one-regular {
-  font-family: "Nerko One", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.oswald-regular {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.creepster-regular {
-  font-family: "Creepster", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'ZZZ A';
-  src: url('fonts/ZZZA-Regular.ttf')  format('truetype');
-}
-
-@font-face {
-  font-family: 'ZZZ System';
-  src: url('fonts/ZZZSystem-Regular.ttf')  format('truetype');
-}
-
-@font-face {
-  font-family: 'CC Ultimatum';
-  src: url('fonts/UltimatumBoldItalic.otf')  format('truetype');
-}
-
-.cc-ultimatum-regular {
-  font-family: "CC Ultimatum", sans-serif;
-}
-
-
-.zzza-regular {
-  font-family: "ZZZ A", sans-serif;
-}
-
-.zzzsystem-regular {
-  font-family: "ZZZ System", sans-serif;
-}
-
-.card {
-  border-radius: 11px;
-  -webkit-border-radius: 11px;
-  -moz-border-radius: 11px;
-}
-
-#renderedImg {
-  position: relative;
-}
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
   
-.footer {
-  margin-top: 30px;
-  border-color: #ffffff;
-  border-width: 3px;
-  border-style: dotted none none  none;
+  .orbitron-regular {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 130%
+  }
+  
+  
+  .shadows-into-light-regular {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 130%
+  }
+  
+  .jacquard-regular {
+    font-family: "Jacquard 12", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  .luckiest-guy-regular {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  .micro-5-regular {
+    font-family: "Micro 5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .nerko-one-regular {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .oswald-regular {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 130%
+  }
+  
+  .creepster-regular {
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.text-border1 {
+    color: white
 }
-
-#mainArtStyle{
-  background-image: url(./imgs/none.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: move;
+.text-border2 {
+    color: white
 }
-
-
-#borderStyle{
-    background-image: url(./imgs/none.png);
-}
-
-#costStyle{
-  background-image: url(./imgs/stats/cost.png);
-  background-position: left 0px top 0px;
-  background-repeat: no-repeat;
-}
-#powerStyle{
-    background-image: url(./imgs/stats/power.png);
-    background-position: right 0px top 0px;
-    background-repeat: no-repeat;
+.text-border3 {
+    color: black
 }
