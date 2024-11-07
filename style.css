@@ -14,10 +14,8 @@
   width: 300px;
   height: 400px;
   background-size: 282px 282px;
-      background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 17px 80px;
-  background-color: rgba(255, 0, 0, 0);
+  background-repeat: no-repeat;
+  background-position: 9px 29px;
 }
 
 #nowPlaying{
