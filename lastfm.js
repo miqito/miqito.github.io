@@ -82,7 +82,7 @@ function changefont() {
 
 
 function changeborder() {
-    const clsBorder = ["text-border1", "text-border2", "text-border3"]
+    const clsBorder = ["text-border1", "text-border2", "text-border3", "text-border4"]
     cardText.classList.remove(...clsBorder);  
 
     border.style.backgroundImage = `url(imgs/${borderSelector.value}.png)`
