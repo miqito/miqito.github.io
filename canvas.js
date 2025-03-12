@@ -16,13 +16,13 @@ sendBtn.addEventListener("click", () => {
 
   function loadImage(src) {
     return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => resolve(img);
-        img.onerror = (err) => reject(err);
+      const img = new Image();
+      img.crossOrigin = "anonymous";  // Add this line
+      img.src = src;
+      img.onload = () => resolve(img);
+      img.onerror = (err) => reject(err);
     });
-}
-
+  }
 let colors = [
   {
     color1: '#f8c0ea90',
