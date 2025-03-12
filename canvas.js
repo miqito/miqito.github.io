@@ -161,7 +161,7 @@ fetch(
             ctx.textAlign = 'right';
             ctx.fillText(songName, 2100, -700);
             ctx.restore();
-            ctx.globalCompositeOperation = "source-over";s
+            ctx.globalCompositeOperation = "source-over";
             const img = new Image();
             // img.src = canvas.toDataURL("image/png");
         })
