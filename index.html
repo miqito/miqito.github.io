@@ -5,99 +5,18 @@
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>now playing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Creepster&display=swap&family=Amatic+SC:wght@400;700&family=Bebas+Neue&family=Indie+Flower&family=Luckiest+Guy&family=Micro+5&family=Nerko+One&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Righteous&family=Shadows+Into+Light&family=Silkscreen:wght@400;700&display=swap&family=Jacquard+12&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Micro+5&family=Ojuju:wght@200..800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="main">
-      <div>
-        <label for="fontSelector">Select the font:</label>
-        <select id="fontSelector" name="fontSelector" onchange="changefont()">
-          <option value="amatic-sc-regular" class="amatic-sc-regular">
-            Amatic SC
-          </option>
-          <option value="bebas-neue-regular" class="bebas-neue-regular">
-            Bebas Neue
-          </option>
-          <option value="creepster-regular" class="creepster-regular">
-            Creepster
-          </option>
-          <option value="indie-flower-regular" class="indie-flower-regular">
-            Indie Flower
-          </option>
-          <option value="jacquard-regular" class="jacquard-regular">
-            Jacquard
-          </option>
-          <option value="luckiest-guy-regular" class="luckiest-guy-regular">
-            Luckiest Guy
-          </option>
-          <option value="micro-5-regular" class="micro-5-regular">
-            Micro 5
-          </option>
-          <option value="nerko-one-regular" class="nerko-one-regular">
-            Nerko One
-          </option>
-          <option value="orbitron-regular" class="orbitron-regular">
-            Orbitron
-          </option>
-          <option value="oswald-regular" class="oswald-regular">Oswald</option>
-          <option value="righteous-regular" class="righteous-regular">
-            Righteous
-          </option>
-          <option value="silkscreen-regular" class="silkscreen-regular">
-            Silkscreen
-          </option>
-          <option
-            value="shadows-into-light-regular"
-            class="shadows-into-light-regular"
-          >
-            Shadows Into Light
-          </option>
-        </select>
-        <label for="borderSelector">Select the border:</label>
-        <select
-          id="borderSelector"
-          name="borderSelector"
-          onchange="changeborder()"
-        >
-          <option value="border3">Magic the Gathering</option>
-          <option value="border2">Spotify</option>
-          <option value="border4">Vampire Survivors</option>
-          <option value="border1">ZZZ Border</option>
-        </select>
-      </div>
-      <div class="settings">
-        <input
-          type="text"
-          id="usernameInput"
-          autocomplete="off"
-          name="username"
-        />
-        <button id="createButton" onclick="setTracks()">Create</button>
-        <button id="downloadButton">Download</button>
-      </div>
-    </div>
-    <div id="cardRendered">
-      <div id="coverArt">
-        <div id="border"></div>
-      </div>
-      <div id="cardText">
-        <p id="nowPlaying">Now Playing:</p>
-        <p id="songName"></p>
-        <p id="songArtist"></p>
-        <p id="songAlbum"></p>
-        <p id="user"></p>
+      <label for="usernameInput">last fm username</label>
+      <input type="text" id="usernameInput" name="usernameInput">
+      <button id="send">send</button><br><br>
+      <button id="download">download</button>
+      <div class="canvas-container">
+        <canvas id="imageCanvas" width="1080" height="1920"></canvas>
       </div>
     </div>
   </body>
 </html>
-<script src="lastfm.js"></script>
-<script src="html2canvas.js"></script>
+<!-- <script src="lastfm.js"></script> -->
+<script src="canvas.js"></script>
