@@ -99,9 +99,9 @@ fetch(
   .then((data) => {
     nowPlayingTrack = data;
 
-    let songName = nowPlayingTrack.recenttracks.track[0].name;
-    let songArtist = nowPlayingTrack.recenttracks.track[0].artist["#text"];
-    let songAlbum = nowPlayingTrack.recenttracks.track[0].album["#text"];
+    let songName = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].name)
+    let songArtist = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].artist["#text"])
+    let songAlbum = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].album["#text"])
 
     fetch(
       `https://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${key}&artist=${songArtist}&album=${songAlbum}&format=json`
