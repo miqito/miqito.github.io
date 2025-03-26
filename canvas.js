@@ -99,12 +99,14 @@ fetch(
   .then((data) => {
     nowPlayingTrack = data;
 
-    let songName = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].name)
-    let songArtist = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].artist["#text"])
-    let songAlbum = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].album["#text"])
-
+    let songNameEn = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].name)
+    let songArtistEn = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].artist["#text"])
+    let songAlbumEn = encodeURIComponent(nowPlayingTrack.recenttracks.track[0].album["#text"])
+   let songName = nowPlayingTrack.recenttracks.track[0].name
+    let songArtist = nowPlayingTrack.recenttracks.track[0].artist["#text"]
+    let songAlbum = nowPlayingTrack.recenttracks.track[0].album["#text"]
     fetch(
-      `https://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${key}&artist=${songArtist}&album=${songAlbum}&format=json`
+      `https://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${key}&artist=${songArtistEn}&album=${songAlbumEn}&format=json`
     )
       .then((res) => {
         return res.json();
