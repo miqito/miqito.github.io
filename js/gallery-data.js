@@ -22,7 +22,7 @@ const photosData = [
     title: "Lushfoil Photo Sim",
     game: "Lushfoil Photo Sim",
     category: "Lushfoil Photo Sim",
-    imageUrl: "imgs/lushfoil/IMG_0023.PNG"
+    imageUrl: "imgs/lushfoil/IMG_0023.png"
   }, 
   {
     id: 3,
