@@ -6,7 +6,7 @@ const galleryProfile = {
   socials: [
     { name: "Blog", icon: "globe", url: "https://miqito.com.br" },
     { name: "Twitter / X", icon: "twitter", url: "https://x.com/_miqito_" },
-    { name: "Instagram", icon: "instagram", url: "https://instagram.com/miqito.vp" }
+    { name: "Instagram", icon: "instagram", url: "https://instagram.com/vp.miqit" }
   ]
 };
 
