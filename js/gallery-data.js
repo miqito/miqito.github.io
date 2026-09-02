@@ -32,4 +32,25 @@ const photosData = [
     category: "Stellar Blade",
     imageUrl: "imgs/stellarblade/StellarBlade_250711_17290200000.png"
   }, 
+  {
+    id: 4,
+    title: "Granblue Fantasy Relink",
+    game: "Granblue Fantasy Relink",
+    category: "Granblue Fantasy Relink",
+    imageUrl: "imgs/relink/881020_20260716215711_1.png"
+  }, 
+  {
+    id: 5,
+    title: "Seclusa",
+    game: "Seclusa",
+    category: "Seclusa",
+    imageUrl: "imgs/seclusa/2116610_20260219110514_1.png"
+  }, 
+    {
+    id: 6,
+    title: "Stellar Blade",
+    game: "Stellar Blade",
+    category: "Stellar Blade",
+    imageUrl: "imgs/stellarblade/StellarBlade_260321_13325600000.png"
+  }, 
 ];

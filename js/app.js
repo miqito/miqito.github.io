@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const state = {
     activeCategory: 'Todos',
     searchQuery: '',
+    currentSort: 'newest',
     currentColumns: 3,
     activePhotoIndex: -1,
     filteredPhotos: [...photosData]
@@ -17,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const itemsCountBadge = document.getElementById('itemsCountBadge');
   const currentFilterName = document.getElementById('currentFilterName');
   const searchInput = document.getElementById('searchInput');
+  const sortSelect = document.getElementById('sortSelect');
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeMetaTag = document.querySelector('meta[name="theme-color"]');
   const categoryNav = document.getElementById('categoryNav');
   const sidebar = document.getElementById('sidebar');
   const sidebarBackdrop = document.getElementById('sidebarBackdrop');
@@ -38,6 +42,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxDownloadBtn = document.getElementById('lightboxDownloadBtn');
   const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
   const lightboxNextBtn = document.getElementById('lightboxNextBtn');
+
+  // Theme Management
+  function initTheme() {
+    const savedTheme = localStorage.getItem('vp_theme') || 'light';
+    applyTheme(savedTheme);
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('vp_theme', theme);
+
+    if (themeMetaTag) {
+      themeMetaTag.setAttribute('content', theme === 'dark' ? '#0b0d13' : '#f4f5f8');
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.setAttribute('title', theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro');
+      themeToggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Ativar Modo Claro' : 'Ativar Modo Escuro');
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', toggleTheme);
+  }
 
   // Initialize Profile
   function initProfile() {
@@ -91,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filter Photos based on Active Category and Search Query
   function filterAndRender() {
-    state.filteredPhotos = photosData.filter(photo => {
+    let result = photosData.filter(photo => {
       const matchesCategory = state.activeCategory === 'Todos' || photo.category === state.activeCategory;
       const query = state.searchQuery.toLowerCase().trim();
       const matchesSearch = !query || 
@@ -102,6 +136,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return matchesCategory && matchesSearch;
     });
+
+     // Apply Sorting: New to Old (default) or Old to New
+    if (state.currentSort === 'newest') {
+      result.sort((a, b) => (b.id || 0) - (a.id || 0));
+    } else if (state.currentSort === 'oldest') {
+      result.sort((a, b) => (a.id || 0) - (b.id || 0));
+    }
+    state.filteredPhotos = result;
 
     // Update Headers
     currentFilterName.textContent = state.activeCategory === 'Todos' ? '— Todas as fotos' : `— ${state.activeCategory}`;
@@ -227,6 +269,13 @@ document.addEventListener('DOMContentLoaded', () => {
         state.searchQuery = e.target.value;
         filterAndRender();
       }, 150);
+       });
+  }
+  // Sort Order Select Handler
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      state.currentSort = e.target.value;
+      filterAndRender();
     });
   }
 
@@ -329,6 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize
+  initTheme();
   initProfile();
   initCategories();
   filterAndRender();
