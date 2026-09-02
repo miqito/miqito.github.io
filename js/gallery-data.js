@@ -5,7 +5,8 @@ const galleryProfile = {
   avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
   socials: [
     { name: "Blog", icon: "globe", url: "https://miqito.com.br" },
-    { name: "Twitter / X", icon: "twitter", url: "https://x.com/_miqito_" }
+    { name: "Twitter / X", icon: "twitter", url: "https://x.com/_miqito_" },
+    { name: "Instagram", icon: "instagram", url: "https://instagram.com/miqito.vp" }
   ]
 };
 
