@@ -246,17 +246,76 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLightboxContent();
   }
 
+  // Smooth Layout Transition (FLIP Animation) for Column Switcher
+  function setColumns(cols) {
+    if (state.currentColumns === cols) return;
+
+    const cards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
+
+    // 1. FIRST: Capture bounding boxes before layout change
+    const firstPositions = new Map();
+    cards.forEach(card => {
+      firstPositions.set(card, card.getBoundingClientRect());
+    });
+
+    // 2. LAST: Apply layout changes
+    state.currentColumns = cols;
+    columnButtons.forEach(b => {
+      b.classList.toggle('active', parseInt(b.getAttribute('data-cols'), 10) === cols);
+    });
+
+    galleryGrid.classList.remove('cols-2', 'cols-3', 'cols-4');
+    galleryGrid.classList.add(`cols-${cols}`);
+
+    // 3. INVERT: Apply delta transforms to position elements at their initial spots
+    cards.forEach(card => {
+      const first = firstPositions.get(card);
+      const last = card.getBoundingClientRect();
+
+      if (!first || !last) return;
+
+      const deltaX = first.left - last.left;
+      const deltaY = first.top - last.top;
+      const scaleX = last.width ? first.width / last.width : 1;
+      const scaleY = last.height ? first.height / last.height : 1;
+
+      if (Math.abs(deltaX) > 0.5 || Math.abs(deltaY) > 0.5 || Math.abs(scaleX - 1) > 0.01) {
+        card.classList.add('is-animating-layout');
+        card.style.transformOrigin = 'top left';
+        card.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scaleX}, ${scaleY})`;
+        card.style.transition = 'none';
+      }
+    });
+
+    // 4. PLAY: Animate smoothly to new position in the next animation frames
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        cards.forEach(card => {
+          if (!card.classList.contains('is-animating-layout')) return;
+
+          card.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease';
+          card.style.transform = 'translate3d(0, 0, 0) scale(1, 1)';
+
+          const handleTransitionEnd = (e) => {
+            if (e.target !== card || e.propertyName !== 'transform') return;
+            card.removeEventListener('transitionend', handleTransitionEnd);
+            card.style.transform = '';
+            card.style.transformOrigin = '';
+            card.style.transition = '';
+            card.classList.remove('is-animating-layout');
+          };
+
+          card.addEventListener('transitionend', handleTransitionEnd);
+        });
+      });
+    });
+  }
+
   // Column Layout Switcher
   columnButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const cols = parseInt(btn.getAttribute('data-cols'), 10);
-      state.currentColumns = cols;
-
-      columnButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      galleryGrid.classList.remove('cols-2', 'cols-3', 'cols-4');
-      galleryGrid.classList.add(`cols-${cols}`);
+      setColumns(cols);
     });
   });
 

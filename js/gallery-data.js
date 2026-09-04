@@ -53,4 +53,25 @@ const photosData = [
     category: "Stellar Blade",
     imageUrl: "imgs/stellarblade/StellarBlade_260321_13325600000.png"
   }, 
+    {
+    id: 7,
+    title: "Midnight Suns",
+    game: "Midnight Suns",
+    category: "Midnight Suns",
+    imageUrl: "imgs/midnightsuns/368260_20260901225944_1.png"
+  }, 
+    {
+    id: 8,
+    title: "Seclusa",
+    game: "Seclusa",
+    category: "Seclusa",
+    imageUrl: "imgs/lushfoil/IMG_0064.png"
+  }, 
+    {
+    id: 9,
+    title: "Stellar Blade",
+    game: "Stellar Blade",
+    category: "Stellar Blade",
+    imageUrl: "imgs/stellarblade/StellarBlade_250717_14394000000.png"
+  }, 
 ];

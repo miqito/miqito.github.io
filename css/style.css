@@ -690,7 +690,7 @@ a {
    6. CONTENT AREA & GALLERY HEADER
    -------------------------------------------------------------------------- */
 .content-container {
-  padding: 1.25rem 1rem 3rem;
+  padding: 1rem 0.85rem 3rem;
   flex: 1;
 }
 
@@ -741,28 +741,22 @@ a {
    7. MASONRY GALLERY & CARDS (MOBILE-FIRST)
    -------------------------------------------------------------------------- */
 .gallery-grid {
-  column-count: 1;
-  column-gap: 1.25rem;
+  column-count: 2;
+  column-gap: 0.85rem;
   width: 100%;
 }
 
-.gallery-grid.cols-2 {
-  column-count: 2;
-}
-
-.gallery-grid.cols-3 {
-  column-count: 3;
-}
-
+.gallery-grid.cols-2,
+.gallery-grid.cols-3,
 .gallery-grid.cols-4 {
-  column-count: 4;
+  column-count: 2;
 }
 
 /* Gallery Card - Polished Light Metallic Frame */
 .gallery-card {
   position: relative;
   break-inside: avoid;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--metallic-surface);
@@ -772,6 +766,12 @@ a {
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
   transform: translateZ(0);
   animation: cardReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.gallery-card.is-animating-layout {
+  will-change: transform;
+  z-index: 10;
+  pointer-events: none;
 }
 
 @keyframes cardReveal {
@@ -1092,8 +1092,23 @@ a {
 /* Tablet (>= 680px) */
 @media (min-width: 680px) {
   .gallery-grid {
-    column-count: 2;
     column-gap: 1.5rem;
+  }
+
+  .gallery-grid.cols-2 {
+    column-count: 2;
+  }
+
+  .gallery-grid.cols-3 {
+    column-count: 3;
+  }
+
+  .gallery-grid.cols-4 {
+    column-count: 4;
+  }
+
+  .gallery-card {
+    margin-bottom: 1.5rem;
   }
 
   .content-container {
@@ -1161,8 +1176,23 @@ a {
   }
 
   .gallery-grid {
-    column-count: 3;
     column-gap: 1.75rem;
+  }
+
+  .gallery-grid.cols-2 {
+    column-count: 2;
+  }
+
+  .gallery-grid.cols-3 {
+    column-count: 3;
+  }
+
+  .gallery-grid.cols-4 {
+    column-count: 4;
+  }
+
+  .gallery-card {
+    margin-bottom: 1.75rem;
   }
 
   .search-box {
