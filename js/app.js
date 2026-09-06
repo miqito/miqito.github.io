@@ -181,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
             src="${escapeHtml(photo.imageUrl)}" 
             alt="${escapeHtml(photo.title)}" 
             loading="lazy"
-            onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80'"
           />
           <div class="card-overlay">
             <div class="card-meta">

@@ -67,11 +67,32 @@ const photosData = [
     category: "Seclusa",
     imageUrl: "imgs/lushfoil/IMG_0064.png"
   }, 
-    {
+  {
     id: 9,
     title: "Stellar Blade",
     game: "Stellar Blade",
     category: "Stellar Blade",
     imageUrl: "imgs/stellarblade/StellarBlade_250717_14394000000.png"
+  }, 
+  {
+    id: 10,
+    title: "Granblue Fantasy Relink",
+    game: "Granblue Fantasy Relink",
+    category: "Granblue Fantasy Relink",
+    imageUrl: "imgs/relink/881020_20260714225227_1.png"
+  }, 
+  {
+    id: 11,
+    title: "Forza Horizon 6",
+    game: "Forza Horizon 6",
+    category: "Forza Horizon 6",
+    imageUrl: "imgs/forza6/2483190_20260519110419_1.png"
+  }, 
+  {
+    id: 12,
+    title: "Lushfoil Photo Sim",
+    game: "Lushfoil Photo Sim",
+    category: "Lushfoil Photo Sim",
+    imageUrl: "imgs/lushfoil/IMG_0052.png"
   }, 
 ];
