@@ -152,6 +152,52 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGallery();
   }
 
+  // Thumbnail & Background Preloading Helpers
+  const preloadedImages = new Set();
+  function getThumbnailUrl(photo) {
+    if (photo.thumbnailUrl) return photo.thumbnailUrl;
+    if (!photo.imageUrl) return '';
+    return photo.imageUrl.replace(/^imgs\//, 'thumbs/').replace(/\/imgs\//, '/thumbs/');
+  }
+
+  function preloadFullImage(url) {
+    if (!url || preloadedImages.has(url)) return;
+    preloadedImages.add(url);
+    const img = new Image();
+    img.src = url;
+  }
+
+  let backgroundPreloadTimer = null;
+  function scheduleBackgroundPreload() {
+    clearTimeout(backgroundPreloadTimer);
+    backgroundPreloadTimer = setTimeout(() => {
+      const preloadList = [...state.filteredPhotos];
+      let idx = 0;
+
+      function preloadNextBatch() {
+        const batchSize = 3;
+        for (let i = 0; i < batchSize && idx < preloadList.length; i++, idx++) {
+          if (preloadList[idx]?.imageUrl) {
+            preloadFullImage(preloadList[idx].imageUrl);
+          }
+        }
+        if (idx < preloadList.length) {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(preloadNextBatch, { timeout: 2000 });
+          } else {
+            setTimeout(preloadNextBatch, 300);
+          }
+        }
+      }
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(preloadNextBatch, { timeout: 2000 });
+      } else {
+        setTimeout(preloadNextBatch, 300);
+      }
+    }, 800);
+  }
+
   // Render Masonry Cards
   function renderGallery() {
     galleryGrid.innerHTML = '';
@@ -174,13 +220,17 @@ document.addEventListener('DOMContentLoaded', () => {
       card.setAttribute('role', 'button');
       card.setAttribute('aria-label', `View ${photo.title}`);
 
+      const thumbUrl = getThumbnailUrl(photo);
+      const fullUrl = photo.imageUrl;
+
       card.innerHTML = `
         <div class="card-image-wrapper">
           <img 
             class="card-img" 
-            src="${escapeHtml(photo.imageUrl)}" 
+            src="${escapeHtml(thumbUrl)}" 
             alt="${escapeHtml(photo.title)}" 
             loading="lazy"
+            onerror="if(this.src!=='${escapeHtml(fullUrl)}'){this.src='${escapeHtml(fullUrl)}';}"
           />
           <div class="card-overlay">
             <div class="card-meta">
@@ -198,6 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
 
+      // Preload full image on hover / touchstart for instant lightbox display
+      card.addEventListener('mouseenter', () => preloadFullImage(fullUrl), { once: true });
+      card.addEventListener('touchstart', () => preloadFullImage(fullUrl), { once: true, passive: true });
+
       card.addEventListener('click', () => openLightbox(index));
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -208,6 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       galleryGrid.appendChild(card);
     });
+
+    scheduleBackgroundPreload();
   }
 
   // Lightbox Modal Functions
@@ -217,6 +273,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLightboxContent();
     lightboxModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Preload adjacent full images for instant navigation
+    const nextIdx = (index + 1) % state.filteredPhotos.length;
+    const prevIdx = (index - 1 + state.filteredPhotos.length) % state.filteredPhotos.length;
+    if (state.filteredPhotos[nextIdx]) preloadFullImage(state.filteredPhotos[nextIdx].imageUrl);
+    if (state.filteredPhotos[prevIdx]) preloadFullImage(state.filteredPhotos[prevIdx].imageUrl);
   }
 
   function closeLightbox() {
