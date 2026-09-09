@@ -95,4 +95,25 @@ const photosData = [
     category: "Lushfoil Photo Sim",
     imageUrl: "imgs/lushfoil/IMG_0052.png"
   }, 
+    {
+    id: 13,
+    title: "Forza Horizon 6",
+    game: "Forza Horizon 6",
+    category: "Forza Horizon 6",
+    imageUrl: "imgs/forza6/2483190_20260519210915_1.png"
+  }, 
+    {
+    id: 14,
+    title: "Stellar Blade",
+    game: "Stellar Blade",
+    category: "Stellar Blade",
+    imageUrl: "imgs/stellarblade/StellarBlade_250716_18182000000.png"
+  }, 
+    {
+    id: 15,
+    title: "Midnight Suns",
+    game: "Midnight Suns",
+    category: "Midnight Suns",
+    imageUrl: "imgs/midnightsuns/368260_20260901224140_1.png"
+  }, 
 ];
