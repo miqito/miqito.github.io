@@ -116,4 +116,46 @@ const photosData = [
     category: "Midnight Suns",
     imageUrl: "imgs/midnightsuns/368260_20260901224140_1.png"
   }, 
+    {
+    id: 16,
+    title: "Forza Horizon 4",
+    game: "Forza Horizon 4",
+    category: "Forza Horizon 4",
+    imageUrl: "imgs/forza4/1293830_20260325181639_1.png"
+  }, 
+    {
+    id: 17,
+    title: "Forza Horizon 6",
+    game: "Forza Horizon 6",
+    category: "Forza Horizon 6",
+    imageUrl: "imgs/forza6/2483190_20260519171755_1.png"
+  }, 
+    {
+    id: 18,
+    title: "Street Fighter 6",
+    game: "Street Fighter 6",
+    category: "Street Fighter 6",
+    imageUrl: "imgs/sf6/1364780_20260822001429_1.png"
+  }, 
+    {
+    id: 19,
+    title: "Lushfoil Photo Sim",
+    game: "Lushfoil Photo Sim",
+    category: "Lushfoil Photo Sim",
+    imageUrl: "imgs/lushfoil/IMG_0090.png"
+  }, 
+    {
+    id: 20,
+    title: "Midnight Suns",
+    game: "Midnight Suns",
+    category: "Midnight Suns",
+    imageUrl: "imgs/midnightsuns/368260_20260901223251_1.png"
+  }, 
+    {
+    id: 21,
+    title: "Stellar Blade",
+    game: "Stellar Blade",
+    category: "Stellar Blade",
+    imageUrl: "imgs/stellarblade/StellarBlade_250612_21353600000.png"
+  }, 
 ];
