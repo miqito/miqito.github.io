@@ -158,4 +158,46 @@ const photosData = [
     category: "Stellar Blade",
     imageUrl: "imgs/stellarblade/StellarBlade_250612_21353600000.png"
   }, 
+    {
+    id: 22,
+    title: "Granblue Fantasy Relink",
+    game: "Granblue Fantasy Relink",
+    category: "Granblue Fantasy Relink",
+    imageUrl: "imgs/relink/881020_20260728221329_1.png"
+  }, 
+    {
+    id: 23,
+    title: "Tekken 8",
+    game: "Tekken 8",
+    category: "Tekken 8",
+    imageUrl: "imgs/tekken8/1778820_20260210104831_1.png"
+  }, 
+    {
+    id: 24,
+    title: "Seclusa",
+    game: "Seclusa",
+    category: "Seclusa",
+    imageUrl: "imgs/seclusa/2116610_20260220115646_1.png"
+  }, 
+    {
+    id: 25,
+    title: "Forza Horizon 6",
+    game: "Forza Horizon 6",
+    category: "Forza Horizon 6",
+    imageUrl: "imgs/forza6/2483190_20260519171242_1.png"
+  }, 
+    {
+    id: 26,
+    title: "Lushfoil Photo Sim",
+    game: "Lushfoil Photo Sim",
+    category: "Lushfoil Photo Sim",
+    imageUrl: "imgs/lushfoil/IMG_0259.png"
+  }, 
+    {
+    id: 27,
+    title: "Stellar Blade",
+    game: "Stellar Blade",
+    category: "Stellar Blade",
+    imageUrl: "imgs/stellarblade/StellarBlade_250617_19501000000.png"
+  }, 
 ];
